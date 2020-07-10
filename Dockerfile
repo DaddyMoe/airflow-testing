@@ -12,8 +12,10 @@ ENV AIRFLOW_HOME /usr/local/airflow
 
 WORKDIR /opt
 
-RUN apt update && apt upgrade -y && pip install -U pip && \
-  pip install pybuilder
+RUN apt-get update -qq  \
+ && pip install -U pip \
+ && pip install pybuilder \
+ && rm -rf /var/lib/apt/lists/* /var/cache/apk/*
 
 COPY build.py .
 RUN  pyb install_dependencies
