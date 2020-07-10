@@ -9,3 +9,4 @@ target/
 .minikube/
 .pytest_cache/
 *.DS_Store
+.pybuilder/
